@@ -8,8 +8,8 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
+      "image": "./assets/images/carsplash.webp",
+      "resizeMode": "cover",
       "backgroundColor": "#2f80ed"
     },
     "ios": {
@@ -23,11 +23,16 @@
     },
     "web": {
       "bundler": "metro",
-      "output": "static",
+      "output": "server",
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
-      "expo-router"
+      [
+        "expo-router",
+        {
+          "origin": "https://carpooling.com/"
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true
