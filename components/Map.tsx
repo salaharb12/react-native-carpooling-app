@@ -99,7 +99,7 @@ const Map = () => {
           }}
           title={marker.title}
           image={
-            selectedDriver === +marker.id ? icons.selectedMarker : icons.marker
+            selectedDriver === marker.id ? icons.selectedMarker : icons.marker
           }
         />
       ))}
