@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { icons } from "@/constants";
 import { calculateRegion, generateMarkersFromData } from "@/lib/map";
 import { useDriverStore, useLocationStore } from "@/store";
@@ -75,7 +76,7 @@ const Map = () => {
         userLatitude,
         userLongitude,
       });
-
+      console.log("Generated Markers:", newMarkers);
       setMarkers(newMarkers);
     }
   }, [drivers]);

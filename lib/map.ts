@@ -35,10 +35,14 @@ export const calculateRegion = ({
   destinationLatitude?: number | null;
   destinationLongitude?: number | null;
 }) => {
+  // Default to Casablanca, Morocco if user location is unavailable
+  const defaultLatitude = 33.5731104; // Casablanca latitude
+  const defaultLongitude = -7.5898434; // Casablanca longitude
+
   if (!userLatitude || !userLongitude) {
     return {
-      latitude: 37.78825,
-      longitude: -122.4324,
+      latitude: defaultLatitude,
+      longitude: defaultLongitude,
       latitudeDelta: 0.01,
       longitudeDelta: 0.01,
     };
