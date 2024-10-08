@@ -147,22 +147,29 @@ export default function Page() {
         setHasPermissions(false);
         return;
       }
+
       let location = await Location.getCurrentPositionAsync();
       console.log("Location : ", location);
-      const adress = await Location.reverseGeocodeAsync({
+
+      const address = await Location.reverseGeocodeAsync({
         latitude: location.coords?.latitude!,
-        longitude: location.coords?.altitude!,
+        longitude: location.coords?.longitude!, // Fix here: Use longitude, not altitude
       });
-      console.log("Adress", adress);
+
+      console.log("Address", address);
+
       setUserLocation({
-        latitude: location.coords.latitude,
+        latitude: location.coords.latitude, // Uncomment this to use the actual user location
         longitude: location.coords.longitude,
-        address: `${adress[0].name}, ${adress[0].region}`,
+        address: `${address[0].city}, ${address[0].region}`,
       });
+
       setLoading(false);
     };
+
     requestLocation();
   }, [setUserLocation]);
+
   return (
     <SafeAreaView className="bg-general-500">
       <FlatList
@@ -195,7 +202,7 @@ export default function Page() {
             <View className="flex flex-row items-center justify-between my-5">
               <Text className="text-2xl font-JakartaExtraBold capitalize">
                 Welcom{", "}
-                {userAddress} 👋🏻
+                {user?.username || "Salah Arb"}👋
               </Text>
               <TouchableOpacity
                 onPress={handleSignOut}

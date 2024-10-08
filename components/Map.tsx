@@ -69,17 +69,21 @@ const Map = () => {
     destinationLongitude,
   });
   useEffect(() => {
+    console.log("useEffect triggered");
     if (Array.isArray(drivers)) {
-      if (!userLatitude || !userLongitude) return;
+      if (!userLatitude || !userLongitude) {
+        console.log("User coordinates missing, returning.");
+        return;
+      }
       const newMarkers = generateMarkersFromData({
         data: drivers,
         userLatitude,
         userLongitude,
       });
-      console.log("Generated Markers:", newMarkers);
+      console.log("Generated Markers:", newMarkers); // Log markers to ensure they're correct
       setMarkers(newMarkers);
     }
-  }, [drivers]);
+  }, [drivers, userLatitude, userLongitude]); // Dependency array
   return (
     <MapView
       provider={PROVIDER_DEFAULT}
