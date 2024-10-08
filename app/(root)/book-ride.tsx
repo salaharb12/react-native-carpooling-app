@@ -20,7 +20,7 @@ const BookRide = () => {
   return (
     <StripeProvider
       publishableKey={process.env.EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY!}
-      merchantIdentifier="merchant.com.uber"
+      merchantIdentifier="merchant.com.carpooling"
       urlScheme="myapp"
     >
       <RideLayout title="Book Ride">
@@ -64,7 +64,7 @@ const BookRide = () => {
             <View className="flex flex-row items-center justify-between w-full border-b border-white py-3">
               <Text className="text-lg font-JakartaRegular">Pickup Time</Text>
               <Text className="text-lg font-JakartaRegular">
-                {formatTime(driverDetails?.time! || 5!)}
+                {formatTime(parseInt(`${driverDetails?.time!}`) || 5)}
               </Text>
             </View>
 
