@@ -6,7 +6,7 @@ import { MarkerData } from "@/types/type";
 import React, { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 import MapView, { Marker, PROVIDER_DEFAULT } from "react-native-maps";
-export const drivers = [
+const drivers = [
   {
     id: 1,
     first_name: "James",
@@ -70,6 +70,8 @@ const Map = () => {
   });
   useEffect(() => {
     console.log("useEffect triggered");
+    //todo: remove this
+    setDrivers(drivers);
     if (Array.isArray(drivers)) {
       if (!userLatitude || !userLongitude) {
         console.log("User coordinates missing, returning.");
