@@ -6,7 +6,7 @@ import { MarkerData } from "@/types/type";
 import React, { useEffect, useState } from "react";
 import { Text, View } from "react-native";
 import MapView, { Marker, PROVIDER_DEFAULT } from "react-native-maps";
-const drivers = [
+export const drivers = [
   {
     id: 1,
     first_name: "James",

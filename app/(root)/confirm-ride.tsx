@@ -1,10 +1,34 @@
-import { Text, View } from "react-native";
+import CustomButton from "@/components/CustomButton";
+import DriverCard from "@/components/DriverCard";
+import { drivers } from "@/components/Map";
+import RideLayout from "@/components/RideLayout";
+import { useDriverStore } from "@/store";
+import { router } from "expo-router";
+import { FlatList, Text, View } from "react-native";
 
 const ConfirmRide = () => {
+  const { selectedDriver, setSelectedDriver } = useDriverStore();
   return (
-    <View>
-      <Text>Confirm Ride</Text>
-    </View>
+    <RideLayout title="Choose a Driver" snapPoints={["65%", "85%"]}>
+      <FlatList
+        data={drivers}
+        renderItem={({ item }) => (
+          <DriverCard
+            item={item}
+            selected={selectedDriver!}
+            setSelected={() => setSelectedDriver(item.id!)}
+          />
+        )}
+        ListFooterComponent={() => (
+          <View className="mx-5 mt-10">
+            <CustomButton
+              title="Select Ride"
+              onPress={() => router.push("/(root)/book-ride")}
+            />
+          </View>
+        )}
+      />
+    </RideLayout>
   );
 };
 
