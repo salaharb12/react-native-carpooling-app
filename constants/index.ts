@@ -24,6 +24,8 @@ import selectedMarker from "@/assets/icons/selected-marker.png";
 import star from "@/assets/icons/star.png";
 import target from "@/assets/icons/target.png";
 import to from "@/assets/icons/to.png";
+import bell from "@/assets/icons/bell.png";
+import edit from "@/assets/icons/Edit.png";
 import check from "@/assets/images/check.png";
 import getStarted from "@/assets/images/get-started.png";
 import message from "@/assets/images/message.png";
@@ -70,6 +72,8 @@ export const icons = {
   star,
   target,
   to,
+  bell,
+  edit,
 };
 
 export const onboarding = [
